@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "uptime.h"
 #include "memory.h"
+#include "cpu.h"
 
 int main(void)
 {
@@ -9,6 +10,7 @@ int main(void)
 
     print_uptime();
     print_memory_usage();
+    print_cpu_usage();
     
 
     return 0;
