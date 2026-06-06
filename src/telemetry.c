@@ -32,7 +32,7 @@ void telemetry_print_report(telemetry_data_t *telemetry_data)
 {
     
 
-    printf("Telemetry Report\n"
+    printf("\nTelemetry Report\n"
                 "----------------\n"
                 "CPU Usage      : %.2f%%\n"
                 "Memory Usage   : %.2f%%\n"

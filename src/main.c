@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include "telemetry.h"
 
 int main(void)
@@ -7,24 +8,23 @@ int main(void)
     
     
     printf("Embedded Linux Telemetry Gateway \n");
-    printf("Version: 0.1\n");
+    printf("Version: 0.2\n");
 
-    //print_uptime();
-    //print_memory_usage();
-    //print_cpu_usage();
-
-    if(collect_telemetry(&telemetry_data) == 0)
+    while(1)
     {
-        telemetry_print_report(&telemetry_data);
+        if(collect_telemetry(&telemetry_data) == 0)
+        {
+            telemetry_print_report(&telemetry_data);
 
-    }
-    else
-    {
-        printf("Failed to collect telemetry data\n");
+        }   
+        else
+        {
+            printf("Failed to collect telemetry data\n");
+        }
+
+        sleep(5);
     }
 
-    
-    
 
     return 0;
 }
