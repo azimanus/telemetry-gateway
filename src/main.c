@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include "telemetry.h"
 #include "config.h"
+#include "json_formatter.h"
 
 int main(void)
 {
@@ -11,10 +12,17 @@ int main(void)
     .interval_sec = 5,
     .device_id = "linux-gateway-001"
     };
+
+    char buffer[256];
+    size_t buffer_size;
+
+    buffer_size = sizeof(buffer);
     
     
     printf("Embedded Linux Telemetry Gateway \n");
-    printf("Version: 0.2\n");
+    printf("Device ID   : %s\n", config.device_id);
+    printf("Interval    : %d sec\n", config.interval_sec);
+    printf("Version     : 0.3\n");
 
     if(read_config(&config) < 0)
     {
@@ -24,14 +32,24 @@ int main(void)
 
     while(1)
     {
-        if(collect_telemetry(&telemetry_data) == 0)
-        {
+        if(collect_telemetry(&telemetry_data) == 0){
             telemetry_print_report(&telemetry_data);
 
         }   
-        else
-        {
+        else{
             printf("Failed to collect telemetry data\n");
+        }
+
+        if(format_telemetry_json(&telemetry_data, &config, buffer, buffer_size) < 0){
+             printf("Error: json formatting error");
+        }
+        else if (format_telemetry_json(&telemetry_data, &config, buffer, buffer_size) > 0) {
+            printf("Error: Buffer too small");
+        
+        }
+        else{
+        
+            printf("JSON Payload: %s\n", buffer);
         }
 
         sleep(config.interval_sec);
