@@ -3,6 +3,7 @@
 #include "telemetry.h"
 #include "config.h"
 #include "json_formatter.h"
+#include "logger.h"
 
 int main(void)
 {
@@ -52,6 +53,10 @@ int main(void)
             printf("JSON Payload: %s\n", buffer);
         }
 
+        if(log_telemetry_payload(buffer) < 0){
+            printf("Failed to log the telemetry");
+        }
+        
         sleep(config.interval_sec);
     }
 
