@@ -1,11 +1,15 @@
 #include <mosquitto.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <signal.h>
 #include "telemetry.h"
 #include "config.h"
 #include "json_formatter.h"
 #include "logger.h"
 #include "mqtt_publisher.h"
+
+volatile sig_atomic_t running_flag = 1;
+void signal_handler(int signum);
 
 int main(void)
 {
@@ -19,10 +23,11 @@ int main(void)
 
     buffer_size = sizeof(buffer);
 
+    signal(SIGINT, signal_handler);
+
     if(read_config(&config) < 0)
     {
         printf("Error: unavailable config parameters.\n");
-        mosquitto_lib_cleanup();
         return -1;
     }
 
@@ -32,8 +37,8 @@ int main(void)
     printf("Version     : 0.4\n");
 
     mosquitto_lib_init();
-    
-    while(1)
+
+    while(running_flag != 0)
     {
         if(collect_telemetry(&telemetry_data) == 0){
             telemetry_print_report(&telemetry_data);
@@ -78,9 +83,15 @@ int main(void)
     }
     
     mosquitto_lib_cleanup();
-
-    
+    printf("Shutting down telemetry gateway...\n");
 
 
     return 0;
+}
+
+void signal_handler(int signum){
+    (void)signum;
+    running_flag = 0;
+    
+    
 }
