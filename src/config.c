@@ -26,9 +26,24 @@ int read_config(config_t *config)
             sscanf(line, "device_id=%63s", config->device_id);
         
         }
+        else if(strncmp(line, "mqtt_host=", 10) == 0)
+        {
+            sscanf(line, "mqtt_host=%63s", config->mqtt_host);
+
+        }
+        else if(strncmp(line, "mqtt_port=", 10) == 0)
+        {
+            sscanf(line, "mqtt_port=%d", &config->mqtt_port);
+
+        }
+        else if(strncmp(line, "mqtt_topic=", 11) == 0)
+        {
+            sscanf(line, "mqtt_topic=%63s", config->mqtt_topic);
+
+        }
         else
         {
-
+            
         }
     }
 
