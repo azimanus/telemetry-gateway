@@ -1199,3 +1199,14 @@
 2026-07-05 17:44:48 { "device_id": "linux-gateway-001", "cpu_usage": 1.83, "memory_usage": 43.45, "uptime_seconds": 30793 } 
 2026-07-05 19:39:44 { "device_id": "linux-gateway-001", "cpu_usage": 2.28, "memory_usage": 50.10, "uptime_seconds": 37689 } 
 2026-07-05 19:39:50 { "device_id": "linux-gateway-001", "cpu_usage": 1.70, "memory_usage": 50.02, "uptime_seconds": 37695 } 
+2026-07-12 18:01:33 { "device_id": "linux-gateway-001", "cpu_usage": 3.11, "memory_usage": 40.98, "uptime_seconds": 3598 } 
+2026-07-12 18:01:39 { "device_id": "linux-gateway-001", "cpu_usage": 2.08, "memory_usage": 40.26, "uptime_seconds": 3604 } 
+2026-07-12 18:01:45 { "device_id": "linux-gateway-001", "cpu_usage": 3.17, "memory_usage": 39.70, "uptime_seconds": 3610 } 
+2026-07-12 18:01:51 { "device_id": "linux-gateway-001", "cpu_usage": 5.65, "memory_usage": 39.99, "uptime_seconds": 3616 } 
+2026-07-12 18:01:57 { "device_id": "linux-gateway-001", "cpu_usage": 7.80, "memory_usage": 39.90, "uptime_seconds": 3622 } 
+2026-07-12 18:02:03 { "device_id": "linux-gateway-001", "cpu_usage": 7.83, "memory_usage": 40.37, "uptime_seconds": 3628 } 
+2026-07-12 18:02:09 { "device_id": "linux-gateway-001", "cpu_usage": 3.66, "memory_usage": 40.24, "uptime_seconds": 3634 } 
+2026-07-12 18:02:15 { "device_id": "linux-gateway-001", "cpu_usage": 2.71, "memory_usage": 39.85, "uptime_seconds": 3640 } 
+2026-07-12 18:02:21 { "device_id": "linux-gateway-001", "cpu_usage": 5.01, "memory_usage": 39.90, "uptime_seconds": 3646 } 
+2026-07-12 18:02:27 { "device_id": "linux-gateway-001", "cpu_usage": 2.90, "memory_usage": 39.79, "uptime_seconds": 3652 } 
+2026-07-12 18:02:33 { "device_id": "linux-gateway-001", "cpu_usage": 1.91, "memory_usage": 39.73, "uptime_seconds": 3658 } 
